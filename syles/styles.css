@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    max-width: 1000px;
+    margin: 0 auto;
+    border: 5px solid red
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+main section {
+    border: 2px solid red;
+}
+
+section#aboutme {
+    grid-column: 1/4;
+}
+
+#third {
+    grid-column: 2/4;
+    grid-row: 1/2;
+}

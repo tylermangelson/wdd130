@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌌 The Cosmic Coffee Bean - Intergalactic Café</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(45deg, #0f0f23, #1a1a40, #2d2d5a);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Animated stars background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        .star:nth-child(odd) {
+            animation-delay: 1s;
+        }
+
+        .star:nth-child(3n) {
+            animation-delay: 2s;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 0;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 2px solid #00ff88;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .logo {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px #00ff88;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px #00ff88; }
+            to { text-shadow: 0 0 30px #00ff88, 0 0 40px #00ff88; }
+        }
+
+        .tagline {
+            font-size: 18px;
+            color: #00ff88;
+            margin-bottom: 20px;
+        }
+
+        .alien-counter {
+            background: rgba(255, 0, 255, 0.1);
+            border: 1px solid #ff00ff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            color: #ff00ff;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .section {
+            background: rgba(0, 0, 0, 0.4);
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #00ff88;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .menu-item {
+            background: linear-gradient(135deg, #1a1a40, #2d2d5a);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #00ff88;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 255, 136, 0.2);
+            background: linear-gradient(135deg, #2d2d5a, #404070);
+        }
+
+        .menu-item h3 {
+            color: #00ff88;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .price {
+            color: #ff00ff;
+            font-weight: bold;
+            float: right;
+            font-size: 18px;
+        }
+
+        .ufo {
+            font-size: 30px;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+            margin: 0 10px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .weather-widget {
+            background: rgba(0, 100, 255, 0.1);
+            border: 2px solid #0064ff;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .random-fact {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: #000;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-weight: bold;
+            text-align: center;
+            animation: rainbow 5s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        .button {
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+        }
+
+        .chat-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #ff00ff;
+            border-radius: 15px;
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        .chat-header {
+            background: #ff00ff;
+            color: #000;
+            padding: 10px;
+            border-radius: 13px 13px 0 0;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            font-size: 14px;
+        }
+
+        .chat-input {
+            padding: 10px;
+            border-top: 1px solid #ff00ff;
+        }
+
+        .chat-input input {
+            width: 100%;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #ff00ff;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .visitor-log {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ff88;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 12px;
+            max-width: 200px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            border-top: 2px solid #00ff88;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .matrix-text {
+            font-family: 'Courier New', monospace;
+            color: #00ff00;
+            text-shadow: 0 0 5px #00ff00;
+        }
+
+        .disco-text {
+            background: linear-gradient(45deg, #ff0080, #0080ff, #80ff00, #ff8000);
+            background-size: 400% 400%;
+            animation: disco 2s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes disco {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated stars -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Visitor counter -->
+    <div class="visitor-log">
+        <div class="matrix-text">VISITORS: <span id="visitorCount">1,337</span></div>
+        <div>🛸 Last alien: 2 min ago</div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo">🌌 THE COSMIC COFFEE BEAN ☕</div>
+            <div class="tagline">Serving the Galaxy's Best Brews Since 2847</div>
+            <div class="alien-counter">
+                👽 Currently serving <span id="alienCount">42</span> alien species
+            </div>
+        </header>
+
+        <div class="section">
+            <h2>🛸 Welcome, Earthling!</h2>
+            <p>Greetings! You have discovered the most extraordinary coffee shop in the known universe. Our establishment has been serving caffeinated beverages to beings from across the galaxy for over 200 Earth years.</p>
+            
+            <div class="ufo">🛸</div>
+            <span class="disco-text">INTERDIMENSIONAL DELIVERY AVAILABLE!</span>
+            <div class="ufo">🛸</div>
+        </div>
+
+        <div class="section">
+            <h2>☕ Galactic Menu</h2>
+            <div class="menu-grid">
+                <div class="menu-item" onclick="orderDrink(this)">
+                    <h3>🌟 Nebula Latte</h3>
+                    <p>Infused with stardust and served at the temperature of a dying star</p>
+                    <span class="price">₹ 299</span>
+                </div>
+                <div class="menu-item" onclick="orderDrink(this)">
+                    <h3>🌙 Lunar Espresso</h3>
+                    <p>Harvested from moon beans during the full lunar eclipse</p>
+                    <span class="price">₹ 199</span>
+                </div>
+                <div class="menu-item" onclick="orderDrink(this)">
+                    <h3>🚀 Rocket Fuel Americano</h3>
+                    <p>Strong enough to power a spaceship to Mars</p>
+                    <span class="price">₹ 249</span>
+                </div>
+                <div class="menu-item" onclick="orderDrink(this)">
+                    <h3>👽 Alien Bubble Tea</h3>
+                    <p>Mysterious green bubbles that change flavor as you drink</p>
+                    <span class="price">₹ 349</span>
+                </div>
+                <div class="menu-item" onclick="orderDrink(this)">
+                    <h3>🌌 Black Hole Mocha</h3>
+                    <p>So rich and dark, light cannot escape its flavor</p>
+                    <span class="price">₹ 399</span>
+                </div>
+                <div class="menu-item" onclick="orderDrink(this)">
+                    <h3>⭐ Supernova Smoothie</h3>
+                    <p>Explosive fruit flavors from the Andromeda galaxy</p>
+                    <span class="price">₹ 279</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="weather-widget">
+            <h3>🌍 Current Space Weather</h3>
+            <p>Solar wind speed: <span id="solarWind">421 km/s</span></p>
+            <p>Cosmic radiation: <span class="matrix-text">MODERATE</span></p>
+            <p>Asteroid forecast: <span style="color: #00ff88;">CLEAR SKIES</span></p>
+        </div>
+
+        <div class="random-fact" id="randomFact">
+            🎲 Random Cosmic Fact: A coffee bean falling into a black hole would take 10,000 years to reach the event horizon!
+        </div>
+
+        <div class="section">
+            <h2>🎮 Interactive Zone</h2>
+            <button class="button" onclick="generateRandomFact()">🎲 Random Fact</button>
+            <button class="button" onclick="changeAlienCount()">👽 Update Alien Count</button>
+            <button class="button" onclick="toggleChat()">💬 Chat with Zorg</button>
+            <button class="button" onclick="launchRocket()">🚀 Launch Rocket</button>
+            <button class="button" onclick="createStorm()">⚡ Create Storm</button>
+        </div>
+
+        <div class="section">
+            <h2 class="disco-text">🎵 Now Playing: Cosmic Jazz Radio 📻</h2>
+            <p>🎶 "Saturn's Rings" by The Interplanetary Jazz Quartet</p>
+            <div style="text-align: center; margin: 20px 0;">
+                <button class="button" onclick="changeSong()">⏭️ Next Song</button>
+                <button class="button" onclick="toggleVolume()">🔊 Volume</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat box -->
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">👽 Chat with Zorg the Barista</div>
+        <div class="chat-messages" id="chatMessages">
+            <div>Zorg: *speaks in alien language* Greetings, human! How may I serve you today?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Type your message..." onkeypress="sendMessage(event)">
+        </div>
+    </div>
+
+    <footer>
+        <p class="matrix-text">© 2847 The Cosmic Coffee Bean | Licensed by the Galactic Coffee Authority</p>
+        <p>🌟 "May your coffee be strong and your Wi-Fi be faster than light" 🌟</p>
+        <div style="margin-top: 15px;">
+            <span>Follow us: </span>
+            <button class="button" onclick="alert('Social media is so 21st century! We use telepathy now.')">📱 SpaceBook</button>
+            <button class="button" onclick="alert('Our Instagram is literally photos from the Hubble telescope!')">📸 CosmicGram</button>
+        </div>
+    </footer>
+
+    <script>
+        // Create animated stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = star.style.height = Math.random() * 3 + 1 + 'px';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Random facts array
+        const cosmicFacts = [
+            "🌟 A teaspoon of neutron star material would weigh about 6 billion tons!",
+            "☕ If you could fold a piece of paper 42 times, it would reach the moon!",
+            "👽 There are more possible games of chess than atoms in the observable universe!",
+            "🚀 One day on Venus is longer than one year on Venus!",
+            "🌌 The Milky Way galaxy tastes like raspberries and smells like rum!",
+            "⭐ You are literally made of star dust from ancient supernovas!",
+            "🛸 If aliens visited Earth, they'd probably think dolphins are the intelligent species!",
+            "☄️ A coffee cup would float in the atmosphere of Saturn's moon Titan!"
+        ];
+
+        // Alien responses for chat
+        const alienResponses = [
+            "Zorg: *adjusts three eyes* That's fascinating, human!",
+            "Zorg: In my galaxy, we drink liquid starlight instead of coffee!",
+            "Zorg: Have you tried our Quantum Foam Cappuccino? It exists and doesn't exist simultaneously!",
+            "Zorg: *speaks in binary* 01001000 01100101 01101100 01101100 01101111! (That means 'Hello!')",
+            "Zorg: Your Earth coffee is... adequate. But wait until you try Proxima Centauri beans!",
+            "Zorg: Fun fact: I have 12 stomachs, so I can drink a LOT of coffee!",
+            "Zorg: Would you like me to read your future in the coffee grounds? I see... more coffee in your future!"
+        ];
+
+        const songs = [
+            "🎵 'Mars Needs Espresso' by The Red Planet Rockers",
+            "🎵 'Latte in Zero Gravity' by Cosmic Café",
+            "🎵 'Alien Blues' by The UFO Jazz Band",
+            "🎵 'Dancing on Jupiter' by The Gas Giant Orchestra",
+            "🎵 'Supernova Serenade' by Stellar Harmony"
+        ];
+
+        let currentSong = 0;
+        let volume = true;
+
+        // Initialize
+        createStars();
+        updateCounters();
+
+        function updateCounters() {
+            setInterval(() => {
+                document.getElementById('visitorCount').textContent = Math.floor(Math.random() * 10000) + 1000;
+                document.getElementById('alienCount').textContent = Math.floor(Math.random() * 100) + 20;
+                document.getElementById('solarWind').textContent = Math.floor(Math.random() * 200) + 350 + ' km/s';
+            }, 3000);
+        }
+
+        function generateRandomFact() {
+            const fact = cosmicFacts[Math.floor(Math.random() * cosmicFacts.length)];
+            document.getElementById('randomFact').innerHTML = fact;
+        }
+
+        function changeAlienCount() {
+            const newCount = Math.floor(Math.random() * 150) + 10;
+            document.getElementById('alienCount').textContent = newCount;
+            alert(`🛸 ${newCount} alien species are now being served! Welcome, new cosmic visitors!`);
+        }
+
+        function toggleChat() {
+            const chatBox = document.getElementById('chatBox');
+            chatBox.style.display = chatBox.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function sendMessage(event) {
+            if (event.key === 'Enter') {
+                const input = event.target;
+                const message = input.value;
+                if (message.trim()) {
+                    const messagesDiv = document.getElementById('chatMessages');
+                    messagesDiv.innerHTML += `<div style="margin: 5px 0; color: #00ff88;">You: ${message}</div>`;
+                    
+                    setTimeout(() => {
+                        const response = alienResponses[Math.floor(Math.random() * alienResponses.length)];
+                        messagesDiv.innerHTML += `<div style="margin: 5px 0;">${response}</div>`;
+                        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                    }, 1000);
+                    
+                    input.value = '';
+                    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                }
+            }
+        }
+
+        function orderDrink(element) {
+            const drinkName = element.querySelector('h3').textContent;
+            element.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                element.style.transform = '';
+                alert(`🛸 Order confirmed! Your ${drinkName} will be delivered by teleportation in 3... 2... 1... ☕✨`);
+            }, 200);
+        }
+
+        function launchRocket() {
+            alert('🚀 Rocket launched! Destination: The coffee plantations of Alpha Centauri! ETA: 4.37 light years');
+            // Add some visual effects
+            document.body.style.animation = 'shake 0.5s';
+            setTimeout(() => {
+                document.body.style.animation = '';
+            }, 500);
+        }
+
+        function changeSong() {
+            currentSong = (currentSong + 1) % songs.length;
+            document.querySelector('.section h2').innerHTML = `🎵 Now Playing: Cosmic Jazz Radio 📻<br><small style="font-size: 14px;">${songs[currentSong]}</small>`;
+        }
+
+        function toggleVolume() {
+            volume = !volume;
+            const btn = event.target;
+            btn.textContent = volume ? '🔊 Volume' : '🔇 Muted';
+        }
+
+        function createStorm() {
+            // Create lightning effect
+            document.body.style.background = '#ffffff';
+            setTimeout(() => {
+                document.body.style.background = 'linear-gradient(45deg, #0f0f23, #1a1a40, #2d2d5a)';
+            }, 100);
+            
+            // Thunder sound effect (visual)
+            alert('⚡ COSMIC STORM ACTIVATED! ⚡\n\n*Thunder rumbles across the galaxy*\n\nThe space weather has been updated!');
+        }
+
+        // Add some CSS for shake animation
+        document.head.insertAdjacentHTML('beforeend', `
+            <style>
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    25% { transform: translateX(-5px); }
+                    75% { transform: translateX(5px); }
+                }
+            </style>
+        `);
+
+        // Random events
+        setInterval(() => {
+            if (Math.random() > 0.95) {
+                const events = [
+                    "🛸 A UFO just landed in the parking lot!",
+                    "⭐ A shooting star granted someone's wish for better coffee!",
+                    "👽 An alien just ordered 47 lattes to go!",
+                    "🌙 The moon is especially caffeinated tonight!",
+                    "🚀 Space delivery drone incoming!"
+                ];
+                const event = events[Math.floor(Math.random() * events.length)];
+                
+                // Create a temporary notification
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: rgba(0, 255, 136, 0.9);
+                    color: black;
+                    padding: 20px;
+                    border-radius: 10px;
+                    font-weight: bold;
+                    z-index: 10000;
+                    animation: pulse 0.5s;
+                `;
+                notification.textContent = event;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.remove();
+                }, 3000);
+            }
+        }, 10000);
+    </script>
+</body>
+</html>

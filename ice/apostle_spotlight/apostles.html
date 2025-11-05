@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostles Spotlights</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #e8eced;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+
+        #apostles-box img {
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: 50% 10%;
+        }
+
+        #apostles-box {
+            background-image: url("images/christus.webp");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 70% center;
+            border: 5px solid black;
+            border-radius: 30px;
+            width: 1000px;
+            text-align: center;
+            margin: 30px auto;
+        }
+
+        #first-presidency-box img {
+            margin: .8em;
+        }
+
+        #q-of-12-box {
+            max-width: 80%;
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            margin: 0 auto;
+            justify-items: center;
+            row-gap: 1em;
+        }
+
+        img {
+            border: 5px solid white;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+        }
+
+        img.large-image {
+            width: 175px;
+            height: 175px;
+        }
+
+        img.medium-image {
+            width: 150px;
+            height: 150px;
+        }
+
+        img.small-image {
+            width: 100px;
+            height: 100px;
+        }
+
+        img {
+            border: 5px solid transparent;
+            border-radius: 50%;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            background-clip: padding-box;
+        }
+
+        img {
+            border: 5px solid white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        img:hover {
+            border-color: gold;
+            animation: rainbow 2s linear infinite;
+            box-shadow: 0 0 20px gold;
+            /* optional glow */
+        }
+
+        @keyfr img {
+            border: 5px solid white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        img:hover {
+            animation: rainbow 2s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0% {
+                filter: hue-rotate(0deg);
+            }
+
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="apostles-box">
+
+        <h1>First Presidency</h1>
+        <div id="first-presidency-box">
+            <img src="images/eyring.webp" alt="Eyring" class="medium-image">
+            <img src="images/oaks.webp" alt="Oaks" class="large-image">
+            <img src="images/christofferson.webp" alt="Christofferson" class="medium-image">
+        </div>
+
+        <h2>Quorum of the Twelve Apostles</h2>
+        <div id="q-of-12-box">
+            <img src="images/holland.webp" alt="" class="small-image">
+            <img src="images/uchtdorf.webp" alt="" class="small-image">
+            <img src="images/bednar.webp" alt="" class="small-image">
+            <img src="images/cook.webp" alt="" class="small-image">
+            <img src="images/anderson.webp" alt="" class="small-image">
+            <img src="images/rasband.webp" alt="" class="small-image">
+            <img src="images/stevenson.webp" alt="" class="small-image">
+            <img src="images/renlund.webp" alt="" class="small-image">
+            <img src="images/gong.webp" alt="" class="small-image">
+            <img src="images/soares.webp" alt="" class="small-image">
+            <img src="images/kearon.webp" alt="" class="small-image">
+            <img src="images/stickman.png" alt="" class="small-image">
+        </div>
+    </div>
+</body>
+
+</html>

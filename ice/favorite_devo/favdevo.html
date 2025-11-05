@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Favorite Talks</title>
+  <link rel="stylesheet" href="favdevo.css">
+
+<style>
+  * {
+        box-sizing: border-box;
+    }
+
+    table{
+        border-collapse: collapse;
+        margin: auto;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+
+    label, inut {
+        display: block;
+        margin: 0 auto;
+    }
+
+    input {
+        margin-bottom: 1em;
+        padding: 8px
+    }
+
+    form {
+      padding-top: 10px;
+    }
+
+    p {
+      font-weight: bold;
+    }
+  </style>
+
+  <link rel="stylesheet" href="styles/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-image">
+        <h1>My Favorite<br>Talks</h1>
+      </div>
+    </header>
+    <main>
+      <div class="content-box">
+         <table>
+          
+        <tr>
+            <th>Speaker</th>
+            <th>Title</th>
+            <th>Location</th>
+            <th>Year</th>
+        </tr>
+        <tr>
+            <td>Dallin H. Oaks</td>
+            <td>Why Do We Serve</td>
+            <td>Tabernacle, SLC</td>
+            <td>1984</td>
+        </tr>
+        <tr>
+            <td>Jeffery r. Holland</td>
+            <td>Of Souls, Symbols, and Sacraments</td>
+            <td>BYU, Provo</td>
+            <td>1988</td>
+        </tr>
+        <tr>
+            <td>Loren Dalton</td>
+            <td>You ARE Receiving Revelation</td>
+            <td>Ensign College</td>
+            <td>2019</td>
+        </tr>
+    </table>
+
+<p>Add your favorite talks!</p>
+
+    <form>
+    <label for="speaker">Speaker:</label>
+    <input type="text">
+
+    <label for="title">Title:</label>
+    <input type="text">
+
+    <label for="Location">Location:</label>
+    <input type="text">
+
+    <label for="Year">Year:</label>
+    <input type="text">
+
+    <p class="submit">Submit</p>
+    </form>
+
+      </div>
+    </main>
+  </div>
+</body>
+</html>
