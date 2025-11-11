@@ -14,7 +14,7 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 75px;
+    height: 85px;
 }
 
 nav a {
@@ -42,20 +42,45 @@ nav a:hover {
 
 .pages-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 30px;
     justify-items: center;
     padding: 20px;
 }
 
 .pages {
-    padding: 15px;
+    padding: 20px;
     text-align: center;
     background-color: #e0e0e0;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-    max-width: 400px;
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
 }
+
+.pages {
+    transition: all 0.3s ease;
+}
+
+.pages:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.pageheading {
+    margin-top: auto;
+    color: #d3272d;
+}
+
+.pageheading :hover {
+  color: #a01c21;
+  text-decoration: underline;
+}
+
 
 .pages img {
     display: block;
@@ -82,7 +107,9 @@ footer {
     color: white;
 }
 
-table, th, td {
+table,
+th,
+td {
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
@@ -90,15 +117,30 @@ table, th, td {
 }
 
 table {
-    width: 75%;            
+    width: 75%;
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
     margin-bottom: 50px;
-    table-layout: fixed;  
+    table-layout: fixed;
 }
 
-th, td {
+th,
+td {
     text-align: center;
+}
+
+.icelist a {
+    display: inline-block;
+    color: #d3272d;
+}
+
+.icelist a:hover {
+  color: #a01c21;
+  text-decoration: underline;
+}
+
+.icelist {
+  text-align: center;     
 }
